@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="Chrome 34.0.1847 (Mac OS X 10.9.2)" package="" timestamp="2014-05-20T22:50:10" id="0" hostname="rriojasm-mac04.local" tests="2" errors="0" failures="0" time="0.027">
+    <properties>
+      <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36"/>
+    </properties>
+    <testcase name="has the city of San Francisco set by Default" time="0.023" classname="Chrome 34.0.1847 (Mac OS X 10.9.2).HomeController"/>
+    <testcase name="calls the weather service with the city" time="0.004" classname="Chrome 34.0.1847 (Mac OS X 10.9.2).HomeController"/>
+    <system-out><![CDATA[
+]]></system-out>
+    <system-err/>
+  </testsuite>
+</testsuites>
