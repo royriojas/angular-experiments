@@ -1,36 +1,47 @@
 var angular = require( 'angular' );
 var myApp = angular.module( 'myApp' );
+//var $ = require( 'jquery' );
 //var console = this.console;
 
-myApp.controller( 'HomeController', [ '$scope', '$http',
-  function ( $scope, $http ) {
-
-    var weatherUrl = "http://api.openweathermap.org/data/2.5/" +
-      "forecast/daily?mode=json" +
-      "&units=imperial&cnt=1";
+var controller = myApp.controller( 'HomeController', [ '$scope', '$http', 'weatherService',
+  function ( $scope, $http, weatherService ) {
 
     $scope.loading = false;
     //  var yelpUrl = 'http://api.yelp.com/business_review_search',
     //    yelpKey = 'XXXXXXX-XXXXX'; //bepunXR8pyH2dHQsP7ZFLA
     $scope.city = "San Francisco, CA";
     $scope.fetchData = function () {
+      $scope.getWeatherData();
+      $scope.getYelpData();
+    };
+
+    $scope.getWeatherData = function () {
+      weatherService.getWeatherFor( $scope.city )
+        .then( function ( weather ) {
+          $scope.weather = weather;
+        } );
+    };
+
+    $scope.getYelpData = function () {
+
+      var yelpUrl = 'http://api.yelp.com/business_review_search',
+        yelpKey = 'SCPa0GWSy4ed-Gva1hf1RQ';
 
       var promise = $http( {
         method: 'JSONP',
-        url: weatherUrl,
+        url: yelpUrl,
         params: {
-          q: encodeURIComponent( $scope.city ),
+          location: $scope.city,
+          ywsid: yelpKey,
           callback: 'JSON_CALLBACK' //JSON callback is important!!!
         }
       } );
 
-      $scope.loading = true;
+      //$scope.loading = true;
 
       promise.then( function ( response ) {
-        $scope.weather = {
-          temp: response.data.list[ 0 ].temp.day,
-          description: response.data.list[ 0 ].weather[ 0 ].description
-        };
+        $scope.nearby = response.data;
+
         //$scope.weather.temp = response.data.list[0].temp.day;
       } );
 
@@ -39,11 +50,10 @@ myApp.controller( 'HomeController', [ '$scope', '$http',
       } );
 
       promise[ 'finally' ]( function () {
-        $scope.loading = false;
+        //$scope.loading = false;
       } );
-
     };
   }
 ] );
 
-module.exports = myApp;
+module.exports = controller;

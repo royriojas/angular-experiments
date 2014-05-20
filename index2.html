@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather app</title>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="src/css/script.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body id="body" ng-app="myApp">
+
+  <div class="container" ng-controller="HomeController">
+    <div class="row">
+      <form class="form" role="form" ng-submit="fetchData()">
+        <div class="col-xs-9">
+          <input type="text" class="form-control" ng-model="city">
+        </div>
+        <div class="col-xs-3">
+          <button type="submit" class="btn btn-primary">Go</button>
+        </div>
+      </form>
+    </div>
+    <div class="alert-info" ng-if="loading">
+      Searching
+    </div>
+    <div class="row wheater-response" ng-if="weather&&city">
+      <h1>The weather in {{ city }}: <span>{{ weather.temp }}</span></h1>
+      <h2>{{ weather.description }}</h2>
+    </div>
+    <div>
+      <h2>Businesses nearby</h2>
+      <button class="btn btn-primary" ng-click="predicate='name'">Name</button>
+      <button class="btn btn-primary" ng-click="predicate='avg_rating'">Average Rating</button>
+      <button class="btn btn-primary" ng-click="predicate='review_count'">Reviews</button>
+      <button class="btn btn-primary" ng-click="reverse=!reverse">+/-</button>
+      <input type="text"
+          ng-model="search.name"
+          placeholder="Filter">
+      <ul>
+        <li ng-repeat="biz in nearby.business | filter:search | orderBy:predicate:true ">
+          <a ng-href="biz.url">
+            <span>{{ biz.name }}</span>
+            <img ng-src="{{biz.rating_img_url}}">
+            <img ng-src="{{biz.photo_url}}">
+          </a>
+          <h5></h5>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!--<div class="container" ng-controller="HomeController as c">-->
+    <!--<h2>{{ c.name }}</h2>-->
+    <!--<button ng-click="c.sayHello()">Say Hello</button>-->
+  <!--</div>-->
+
+  <!--<div class="container" ng-controller="HomeController as c">-->
+    <!--<h2>{{ c.name }}</h2>-->
+    <!--<button ng-click="c.sayHello()">Say Hello B!!</button>-->
+  <!--</div>-->
+
+  <!--<div class="container" ng-controller="HomeController2">-->
+    <!--<h2>{{ name }}</h2>-->
+    <!--<button ng-click="sayHello()">Say Hello No!!</button>-->
+  <!--</div>-->
+
+  <!--<div class="container" ng-controller="HomeController2">-->
+    <!--<h2>{{ name }}</h2>-->
+    <!--<input type="text" ng-model="name" placeholder="Enter your name">-->
+    <!--<button ng-click="sayHello()">Say Hello to {{ name }}!!</button>-->
+  <!--</div>-->
+
+  <!--<script src="node_modules/jquery/dist/jquery.min.js"></script>-->
+  <script src="vendor/angular/angular-1.2.js"></script>
+  <script src="vendor/angular/angular-ui-router.min.js"></script>
+  <script src="dist/js/app.js"></script>
+</body>
+</html>

@@ -7,52 +7,76 @@
   <link rel="stylesheet" href="src/css/script.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body id="body">
+<!-- body().ngApp('myApp') -->
+<body ng-app='myApp'>
 
-  <div class="container" ng-controller="HomeController">
-    <div class="row">
-      <form class="form" role="form" ng-submit="fetchData()">
-        <div class="col-xs-9">
-          <input type="text" class="form-control" ng-model="city">
-        </div>
-        <div class="col-xs-3">
-          <button type="submit" class="btn btn-primary">Go</button>
-        </div>
-      </form>
-    </div>
-    <div class="alert-info" ng-if="loading">
-      Searching
-    </div>
-    <div class="row wheater-response" ng-if="weather&&city">
-      <h1>The weather in {{ city }}: <span>{{ weather.temp }}</span></h1>
-      <h2>{{ weather.description }}</h2>
-    </div>
+<div  class="container"
+      ng-controller='HomeController'>
+
+  <div class="row">
+    <form class='form' role='form'
+          ng-submit='fetchData()'>
+      <div class="col-xs-9">
+        <input
+            ng-model='city'
+            class='form-control'/>
+      </div>
+      <div class="col-xs-3">
+        <button type='submit'
+                class='btn btn-primary'>
+          Go
+        </button>
+      </div>
+    </form>
   </div>
 
-  <!--<div class="container" ng-controller="HomeController as c">-->
-    <!--<h2>{{ c.name }}</h2>-->
-    <!--<button ng-click="c.sayHello()">Say Hello</button>-->
-  <!--</div>-->
+  <div class="row">
+    <div class="col-xs-6"
+         ng-show='weather'>
+      <h1>
+        The weather in {{ city }} is:
+        {{ weather.list[0].temp.day }}
+      </h1>
+      <h2>{{ weather.list[0].weather[0].description }}</h2>
+    </div>
+    <div class="col-xs-6" ng-show='nearby'>
+      <h2>Businesses nearby</h2>
+      <div class="btn-group">
+        <button
+            class="btn btn-primary"
+            ng-click='predicate="name"'>Name</button>
+        <button
+            class="btn btn-primary"
+            ng-click='predicate="avg_rating"'>Average Rating</button>
+        <button
+            class="btn btn-primary"
+            ng-click='predicate="review_count"'>Reviews</button>
+      </div>
+      <button class='btn btn-primary'
+              ng-click="reverse=!reverse">-/+</button>
+      <input type="text"
+             ng-model='search.$'
+             placeholder='Filter'>
+      <ul>
+        <li
+            ng-repeat='biz in nearby.businesses | filter:search | orderBy:predicate:reverse'>
+          <a
+              ng-href="{{ biz.url }}">
+            <h3>
+              {{ biz.name }}
+            </h3>
+            <img ng-src="{{ biz.rating_img_url }}"/>
+            <img ng-src="{{ biz.photo_url }}">
+          </a>
+          <h5>{{ biz.avg_rating }} / {{ biz.review_count }}</h5>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-  <!--<div class="container" ng-controller="HomeController as c">-->
-    <!--<h2>{{ c.name }}</h2>-->
-    <!--<button ng-click="c.sayHello()">Say Hello B!!</button>-->
-  <!--</div>-->
-
-  <!--<div class="container" ng-controller="HomeController2">-->
-    <!--<h2>{{ name }}</h2>-->
-    <!--<button ng-click="sayHello()">Say Hello No!!</button>-->
-  <!--</div>-->
-
-  <!--<div class="container" ng-controller="HomeController2">-->
-    <!--<h2>{{ name }}</h2>-->
-    <!--<input type="text" ng-model="name" placeholder="Enter your name">-->
-    <!--<button ng-click="sayHello()">Say Hello to {{ name }}!!</button>-->
-  <!--</div>-->
-
-  <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="vendor/angular/angular.min.js"></script>
-  <script src="vendor/angular/angular-ui-router.min.js"></script>
-  <script src="dist/js/app.js"></script>
+<script type="text/javascript" src="vendor/angular/angular-1.2.js">
+</script>
+<script type="text/javascript" src="dist/js/app2.js"></script>
 </body>
 </html>
