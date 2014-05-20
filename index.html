@@ -20,8 +20,12 @@
         </div>
       </form>
     </div>
-    <div class="row">
-      {{ weather }}
+    <div class="alert-info" ng-if="loading">
+      Searching
+    </div>
+    <div class="row wheater-response" ng-if="weather&&city">
+      <h1>The weather in {{ city }}: <span>{{ weather.temp }}</span></h1>
+      <h2>{{ weather.description }}</h2>
     </div>
   </div>
 

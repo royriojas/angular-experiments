@@ -10,3 +10,7 @@ body, * {
 .container {
   padding: 30px 10px;
 }
+
+.wheater-response {
+  padding: 30px;
+}
