@@ -27,6 +27,10 @@ module.exports = function ( grunt ) {
       'jscs',
       'jshint',
       'jsvalidate'
+    ],
+    'default': [
+      'validate',
+      'browserify'
     ]
 //    'js': [
 //      'preprocess',

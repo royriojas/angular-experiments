@@ -3,6 +3,10 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 @import "http://fonts.googleapis.com/css?family=Open+Sans:400,300,700";
 
-body {
+body, * {
   font-family: 'Open Sans', serif;
+}
+
+.container {
+  padding: 30px 10px;
 }
