@@ -1,0 +1,38 @@
+{
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "sub": true,
+  "undef": true,
+  "boss": true,
+  "eqnull": true,
+  "browser": true,
+  "expr": true,
+  "laxcomma": true,
+  "multistr": true,
+  "globals": {
+    "stop": true,
+    "start": true,
+    "jQuery": true,
+    "kno": true,
+    "doT": true,
+    "Element": true,
+    "require": true,
+    "equal": true,
+    "notEqual": true,
+    "ok": true,
+    "test": true,
+    "throws": true,
+    "asyncTest": true,
+    "module": true,
+    "__shim": true,
+    "console": true,
+    "deepEqual": true,
+    "notEqual": true,
+    "strictEqual": true
+  }
+}
+

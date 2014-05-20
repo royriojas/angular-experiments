@@ -1,0 +1,87 @@
+{
+  "name": "grunt-browserify-jasmine-node-example",
+  "description": "An example of how to set up a project for cross-developing for the browser and node.js.",
+  "version": "0.2.0",
+  "homepage": "https://github.com/amitayd/grunt-browserify-jasmine-node-example",
+  "author": {
+    "name": "Amitay Dobo",
+    "email": "amitayd@gmail.com",
+    "url": "http://doboism.com"
+  },
+  "browserify-shim": {
+    "jquery": "global:$",
+    "underscore": "global:_"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/amitayd/grunt-browserify-jasmine-node-example.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amitayd/grunt-browserify-jasmine-node-example/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/amitayd/grunt-browserify-jasmine-node-example/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "src",
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "dependencies": {
+    "underscore": "~1.6.0",
+    "jquery": "~2.1.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt": "~0.4.4",
+    "grunt-browserify": "~2.0.8",
+    "jasmine-node": "~2.0.0-beta4",
+    "grunt-contrib-jasmine": "~0.6.4",
+    "grunt-jasmine-node": "~0.2.1",
+    "browserify": "~3.46.0",
+    "browserify-shim": "~3.4.1",
+    "jasmine-core": "~2.0.0",
+    "matchdep": "~0.3.0",
+    "stringformat": "0.0.5",
+    "time-grunt": "~0.2.9",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-exec": "~0.4.5",
+    "grunt-csso": "~0.5.3",
+    "grunt-autoprefixer": "~0.7.3",
+    "grunt-ez-frontend": "~0.2.20",
+    "grunt-jsonlint": "~1.0.4",
+    "grunt-jscs-checker": "~0.2.3",
+    "grunt-jsvalidate": "~0.2.2",
+    "grunt-newer": "~0.6.1",
+    "qunitjs": "git://github.com/royriojas/qunit#7ba621d",
+    "grunt-jsbeautifier": "git://github.com/royriojas/grunt-jsbeautifier#e69f6ef",
+    "kwl-dist": "http://knorepo.cloud.kno.com/pool/main/kwl-dist-1.5.115.tgz",
+    "docco-husky": "git://github.com/royriojas/docco-husky#1f8d118",
+    "qunit-dark": "~0.1.5",
+    "lodash": "~2.4.1",
+    "codepainter": "~0.3.27",
+    "filesaver.js": "https://github.com/royriojas/FileSaver.js/tarball/master",
+    "twig": "git://github.com/royriojas/twig.js",
+    "marked": "~0.3.1",
+    "cheerio": "~0.13.1",
+    "grunt-qunit-istanbul": "~0.3.0",
+    "karma": "~0.12.16",
+    "grunt-karma": "~0.8.3",
+    "grunt-contrib-csslint": "~0.2.0",
+    "html-entities": "~1.0.10",
+    "npm": "~1.4.10"
+  },
+  "keywords": [
+    "grunt",
+    "jasmine",
+    "browserify"
+  ]
+}
