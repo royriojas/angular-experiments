@@ -20,7 +20,6 @@
     };
   } );
 
-
   myApp.controller( 'HomeController2', function ( $scope, $element ) {
     var me = $scope;
     me.name = 'Roy is awesome!';
