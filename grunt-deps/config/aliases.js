@@ -1,7 +1,6 @@
 module.exports = function ( grunt ) {
   'use strict';
 
-  var common = require( './common.js' );
   var gruntTaskUtils = require( 'grunt-ez-frontend/lib/grunt-task-utils.js' )( grunt );
 
   var gruntTasks = {
@@ -15,7 +14,16 @@ module.exports = function ( grunt ) {
     'default': [
       'validate',
       'browserify'
-    ]
+    ],
+    'create-structure': function () {
+      var patterns = ['src/js/services/**/*.js',
+      'src/js/controllers/**/*.js'];
+
+      var files = grunt.file.expand(patterns);
+
+      console.log(files);
+
+    }
   };
 
   gruntTaskUtils.registerTasks( gruntTasks );

@@ -3,9 +3,11 @@ var angular = require( 'angular' );
 
 var myApp = angular.module( 'myApp', [] );
 
-require( './services/yelp-service.js' )( myApp );
-require( './services/weather-service.js' )( myApp );
-require( './controller/home-controller.js' )( myApp );
+var files = [ './src/js/services/yelp-service.js', './src/js/services/weather-service.js', './src/js/controllers/home-controller.js' ];
+
+files.forEach( function ( dep ) {
+  require( dep )( myApp );
+} );
 
 module.exports = {
   start: function () {

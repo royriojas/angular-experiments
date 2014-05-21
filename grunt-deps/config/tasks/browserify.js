@@ -10,7 +10,7 @@ module.exports = function(grunt) {
       options: {
         alias: [ "src/js/main.js:app" ],
         require: grunt.file.expand(
-          [ './src/js/controller/*.js',
+          [ './src/js/controllers/*.js',
             './src/js/services/*.js'
           ] ),
         exclude: [ './node_modules/jquery/dist/jquery.js', './node_modules/angular/index.js' ],
