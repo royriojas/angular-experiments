@@ -1,5 +1,5 @@
 describe('HomeController', function (){
-  var scope, WeatherService;
+  var scope, WeatherService, $httpBackend;
 
   beforeEach(module('myApp'));
   beforeEach(inject(function ($rootScope, $controller, $injector) {
@@ -7,12 +7,18 @@ describe('HomeController', function (){
 
     WeatherService = $injector.get('WeatherService');
 
+    $httpBackend = $injector.get('$httpBackend');
+
     $controller('HomeController', {
       $scope : scope,
       WeatherService : WeatherService
     });
 
   }));
+
+  afterEach(function () {
+    $httpBackend.resetExpectations();
+  });
 
   it('has the city of San Francisco set by Default', function () {
     expect(scope.city).toMatch(/San Francisco/);
@@ -24,7 +30,7 @@ describe('HomeController', function (){
     scope.getWeatherData();
 
     expect(WeatherService.getWeatherFor).toHaveBeenCalled();
-
+    //$httpBackend.flush();
   });
 
 });

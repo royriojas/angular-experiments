@@ -3,8 +3,9 @@ var angular = require( 'angular' );
 
 var myApp = angular.module( 'myApp', [] );
 
-require( './services/weather-service.js' );
-require( './controller/home-controller.js' );
+require( './services/yelp-service.js' ); //(myApp);
+require( './services/weather-service.js' ); //(myApp);
+require( './controller/home-controller.js' ); //(myApp);
 
 module.exports = {
   start: function () {
