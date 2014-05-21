@@ -8,10 +8,11 @@ module.exports = function(grunt) {
       // the destination
       dest: 'dist/js/app.js',
       options: {
-        debug: true,
-        // change the name which will be used to include the app
-        // from the browser (using require)
-        // alias: [ "./src/js/app.js" ],
+        alias: [ "src/js/main.js:app" ],
+        require: grunt.file.expand(
+          [ './src/js/controller/*.js',
+            './src/js/services/*.js'
+          ] ),
         exclude: [ './node_modules/jquery/dist/jquery.js', './node_modules/angular/index.js' ],
         transform: [
           'browserify-shim'
@@ -19,5 +20,5 @@ module.exports = function(grunt) {
         ]
       }
     }
-  }
+  };
 };
